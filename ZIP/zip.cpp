@@ -56,14 +56,14 @@ void zip_div_top(ZIP_T A[MAX_SIZE],
         ZIP_T B[MAX_SIZE],
         ZIP_T C[MAX_SIZE],
         int size) {
-    // TODO: Change to complex
     // Local memory to store input and output matrices
     // Calculate matrix multiplication using local data buffer based on input size
     // and write results into local buffer for C
 zip_div_l:
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i += 2) {
 #pragma HLS LOOP_TRIPCOUNT min = 2 max = MAX_SIZE
-        C[i] = A[i] / B[i];
+        C[i    ] = ( A[i] * B[i    ] + A[i + 1] * B[i + 1]) / (B[i] * B[i] + B[i + 1] * B[i + 1]);
+        C[i + 1] = (-A[i] * B[i + 1] + A[i + 1] * B[i    ]) / (B[i] * B[i] + B[i + 1] * B[i + 1]);
     }
 }
 
