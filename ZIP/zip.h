@@ -11,7 +11,6 @@ void zip_add_top(ZIP_T A [MAX_SIZE], ZIP_T B [MAX_SIZE], ZIP_T C [MAX_SIZE], int
 void zip_sub_top(ZIP_T A [MAX_SIZE], ZIP_T B [MAX_SIZE], ZIP_T C [MAX_SIZE], int size);
 void zip_mult_top(ZIP_T A [MAX_SIZE], ZIP_T B [MAX_SIZE], ZIP_T C [MAX_SIZE], int size);
 void zip_div_top(ZIP_T A [MAX_SIZE], ZIP_T B [MAX_SIZE], ZIP_T C [MAX_SIZE], int size);
-void zip_comp_mult_top(ZIP_T A [MAX_SIZE], ZIP_T B [MAX_SIZE], ZIP_T C [MAX_SIZE], int size);
 
 #endif
 

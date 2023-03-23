@@ -38,20 +38,6 @@ zip_sub_l:
     }
 }
 
-// void zip_mult_top(ZIP_T A[MAX_SIZE],
-//     ZIP_T B[MAX_SIZE],
-//     ZIP_T C[MAX_SIZE],
-//     int size) {
-//     // Local memory to store input and output matrices
-//     // Calculate matrix multiplication using local data buffer based on input size
-//     // and write results into local buffer for C
-// zip_mult_l:
-//     for (int i = 0; i < size; i++) {
-// #pragma HLS LOOP_TRIPCOUNT min = 2 max = MAX_SIZE
-//         C[i] = A[i] * B[i];
-//     }
-// }
-
 void zip_div_top(ZIP_T A[MAX_SIZE],
         ZIP_T B[MAX_SIZE],
         ZIP_T C[MAX_SIZE],
