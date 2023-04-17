@@ -38,11 +38,8 @@
 #define MAX(a,b) ((a<b)?b:a)
 #endif
 
-#define CONV_2D_MIN 0
-#define CONV_2D_MAX 32767
-
-typedef ap_axiu<16, 0, 0, 0> pix_out_t;
-typedef signed short         pix_t;
+#define CONV_2D_MIN -2147483648
+#define CONV_2D_MAX  2147483647
 
 typedef unsigned char      		U8;
 typedef unsigned short     		U16;
@@ -51,6 +48,9 @@ typedef unsigned int       		U32;
 typedef signed char        		I8;
 typedef signed short       		I16;
 typedef signed int         		I32;
+
+typedef ap_axiu<32, 0, 0, 0> pix_out_t;
+typedef I32                  pix_t;
 
 void Filter2D(
 		const float              coeffs[FILTER_V_SIZE][FILTER_H_SIZE],
