@@ -19,14 +19,14 @@ void wrapper_zip_hw(hls::stream<AXI_VAL> &in_stream, hls::stream<AXI_VAL> &out_s
     
     AXI_VAL val;
     // Stream in the input vector A
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < 2 * size; i++) {
 #pragma HLS LOOP_TRIPCOUNT min = 2 max = MAX_SIZE
 #pragma HLS PIPELINE II=1
         val=in_stream.read();
         A[i] = val.data;
     }
     // Stream in the input vector B
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < 2 * size; i++) {
 #pragma HLS LOOP_TRIPCOUNT min = 2 max = MAX_SIZE
 #pragma HLS PIPELINE II=1
         val=in_stream.read();
@@ -53,11 +53,11 @@ void wrapper_zip_hw(hls::stream<AXI_VAL> &in_stream, hls::stream<AXI_VAL> &out_s
     }
     
     // Stream out the result matrices
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < 2 * size; i++) {
 #pragma HLS LOOP_TRIPCOUNT min = 2 max = MAX_SIZE
 #pragma HLS PIPELINE II=1
         val.data = C[i];
-        val.last = (i == (size - 1));
+        val.last = (i == (2 * size - 1));
         val.keep = 0xf;
         val.strb = 0xf;
         out_stream.write(val);
